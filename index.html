@@ -247,42 +247,38 @@ const form = document.getElementById("registerForm"); // ให้แน่ใ�
     const businessType = document.getElementById("business-type").value;
     const otherBusinessType = document.getElementById("other-business-type").value;
 
-    const data = {
-      name: document.getElementById("name").value,
-      memberId: document.getElementById("member-id").value,
-      companyName: document.getElementById("company-name").value,
-      branch: document.getElementById("branch").value,
-      taxId: document.getElementById("tax-id").value,
-      businessType: businessType,
-      otherBusinessType: businessType === "OTHER" ? otherBusinessType : "",
-      revenue: document.getElementById("revenue").value,
-      employees: document.getElementById("employees").value,
-      address: document.getElementById("address").value,
-      telephone: document.getElementById("telephone").value,
-      mobile: document.getElementById("mobile").value,
-      email: document.getElementById("email").value,
-      website: document.getElementById("website").value
-    };
+  const data = {
+  name: document.getElementById("name").value,
+  memberId: document.getElementById("member-id").value,
+  companyName: document.getElementById("company-name").value,
+  branch: document.getElementById("branch").value,
+  taxId: document.getElementById("tax-id").value,
+  businessType: document.getElementById("business-type").value,
+  otherBusinessType: document.getElementById("other-business-type")?.value || '',
+  revenue: document.getElementById("revenue").value,
+  employees: document.getElementById("employees").value,
+  address: document.getElementById("address").value,
+  telephone: document.getElementById("telephone").value,
+  mobile: document.getElementById("mobile").value,
+  email: document.getElementById("email").value,
+  website: document.getElementById("website").value
+};
 
-    fetch("https://script.google.com/macros/s/AKfycbwIAjAB1OxyaXBSoZYusLprFb-4vWgV0Ewrq8hKcR6wjV4YYZ-sqSorPXDmxmlWr11OUQ/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => response.text())
-    .then(result => {
-      if (result === "Success") {
-        window.location.href = "sucss.html";
-      } else {
-        alert("Something went wrong: " + result);
-      }
-    })
-    .catch(error => {
-      alert("Error: " + error);
-    });
-  });
+fetch('https://script.google.com/macros/s/AKfycbwIAjAB1OxyaXBSoZYusLprFb-4vWgV0Ewrq8hKcR6wjV4YYZ-sqSorPXDmxmlWr11OUQ/exec', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+.then(response => response.text())
+.then(result => {
+  console.log(result);
+  alert("ส่งข้อมูลสำเร็จ");
+})
+.catch(error => {
+  console.error("เกิดข้อผิดพลาด:", error);
+});
 
   function showOtherInput() {
     const select = document.getElementById("business-type");
