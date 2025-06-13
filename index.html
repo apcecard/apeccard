@@ -129,7 +129,7 @@ a {
       <img src="https://www.jsccib.org/upload/images/2025/04/card1%20(1).png" alt="APEC Card" class="apec-logo">
       <h1>Register for User Premium Service ABTC</h1>
     </div>
-    <form name="content" method="POST" data-netlify="true" enctype="multipart/form-data" action="/sucss.html">
+    <form id=" " action="sucss.html" method="POST">
       <div class="form-row">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -202,7 +202,7 @@ a {
         label for="terms">I accept the <a href="#">Terms and Conditions</a> of your site.</label>
       </div>
       <div class="form-row">
-          <button type="submit" class="submit-btn">Register Badge</button>
+        <button type="submit" class="submit-btn">Register Badge</button>
       </div>
     </form>
   </div>
@@ -228,30 +228,4 @@ a {
 </script>
 </html>
 
-
-----------------------------
-
-function createTable(data) {
-        var tbody = document.getElementById("table-body");
-        data.forEach(function (r, index) {
-          var row = document.createElement('tr');
-          
-          // เพิ่มคอลัมน์ลำดับ
-          var orderCell = document.createElement('td');
-          orderCell.textContent = index + 1; // ลำดับเริ่มต้นจาก 1
-          row.appendChild(orderCell);
-          
-          // สร้างคอลัมน์และเพิ่มข้อมูลจาก Google Sheets
-          r.forEach(function (value) {
-            var col = document.createElement('td');
-            col.textContent = value;
-            row.appendChild(col);
-          });
-
-          // เพิ่มแถวข้อมูลที่สร้างไว้ในตาราง
-          tbody.appendChild(row);
-        });
-      }
-
-https://script.google.com/macros/s/AKfycbyKz7I02Yo_eXGUsuPJxWMPdRwlxAIv6D6JB_dXS4G6APpCiAMGsyXE97G037QvzpsWvA/exec
 
