@@ -61,14 +61,6 @@ input[type="text"], input[type="tel"], input[type="email"], input[type="url"], s
 input[type="checkbox"] {
   margin-right: 10px;
 }
-input[type="number"]{
-    width: 300px;
-    height: 25px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
 
 button.submit-btn {
   width: 100%;
@@ -127,10 +119,9 @@ a {
     }
     100% {
       transform: translateY(0); /* กลับมาที่เดิม */
-    }
-    
-   
+    }   
   }
+
 </style>
 <body>
   <div class="form-container">
@@ -138,7 +129,7 @@ a {
       <img src="https://www.jsccib.org/upload/images/2025/04/card1%20(1).png" alt="APEC Card" class="apec-logo">
       <h1>Register for User Premium Service ABTC</h1>
     </div>
-   <form id=" " action="sucss.html" method="POST">
+    <form name="content" method="POST" data-netlify="true" enctype="multipart/form-data" action="/sucss.html">
       <div class="form-row">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -186,23 +177,6 @@ a {
           <input type="text" id="other-business-type" name="other-business-type" placeholder="Enter business type">
         </div>
       </div>
-  <div class="form-row">
-        <label for="Business sector">Business sector</label>
-        <select id="Business sector" name="Business sector" required onchange="showOtherInput()">
-          <option value="Select Business type">Select Business Type</option>
-          <option value="MANUFACTURING SECTOR">MANUFACTURING SECTOR</option>
-          <option value="TRADE AND SERVICE SECTOR">TRADE AND SERVICE SECTOR</option>
-        </select>
-        </div>
-<div clss="form-number">
-        <label for="revenue">Average annual company revenue (Million Baht)</label>
-         <input type="number" id="revenue" name="revenue" min="1" max="100000000000" value="" class="input">
-</div>
-<div clss="form-number">
-<label for="perm">Permanent employees (persons)</label>
-<input type="number" id="perm" name="perm_employees" min="0" placeholder="e.g. 10" style="margin-bottom: 12 px;">
-</div>
-
       <div class="form-row">
         <label for="address">Address</label>
         <input type="text" id="address" name="address" required>
@@ -228,7 +202,7 @@ a {
         label for="terms">I accept the <a href="#">Terms and Conditions</a> of your site.</label>
       </div>
       <div class="form-row">
-        <button type="submit" class="submit-btn">Register Badge</button>
+          <button type="submit" class="submit-btn">Register Badge</button>
       </div>
     </form>
   </div>
@@ -244,27 +218,6 @@ a {
     var businessType = document.getElementById("business-type").value;
     var otherInputContainer = document.getElementById("other-input-container");
 
-    
-    if (businessType === "OTHER") {
-      otherInputContainer.style.display = "block"; 
-    } else {
-      otherInputContainer.style.display = "none"; 
-    }
-  }
-
-function changeRevenue(amount) {
-    const input = document.getElementById("revenue");
-    let value = parseInt(input.value);
-    if (isNaN(value)) value = 1;
-    value += amount;
-    if (value < 1) value = 1;
-    if (value > 100000000000) value = 100000000000;
-    input.value = value;
-  }
-function showOtherInput() {
-    var businessType = document.getElementById("business-type").value;
-    var otherInputContainer = document.getElementById("other-input-container");
-
     // ตรวจสอบว่าผู้ใช้เลือก "OTHER" หรือไม่
     if (businessType === "OTHER") {
       otherInputContainer.style.display = "block"; // แสดงช่องกรอกข้อมูล
@@ -272,6 +225,33 @@ function showOtherInput() {
       otherInputContainer.style.display = "none"; // ซ่อนช่องกรอกข้อมูล
     }
   }
-
 </script>
 </html>
+
+
+----------------------------
+
+function createTable(data) {
+        var tbody = document.getElementById("table-body");
+        data.forEach(function (r, index) {
+          var row = document.createElement('tr');
+          
+          // เพิ่มคอลัมน์ลำดับ
+          var orderCell = document.createElement('td');
+          orderCell.textContent = index + 1; // ลำดับเริ่มต้นจาก 1
+          row.appendChild(orderCell);
+          
+          // สร้างคอลัมน์และเพิ่มข้อมูลจาก Google Sheets
+          r.forEach(function (value) {
+            var col = document.createElement('td');
+            col.textContent = value;
+            row.appendChild(col);
+          });
+
+          // เพิ่มแถวข้อมูลที่สร้างไว้ในตาราง
+          tbody.appendChild(row);
+        });
+      }
+
+https://script.google.com/macros/s/AKfycbyKz7I02Yo_eXGUsuPJxWMPdRwlxAIv6D6JB_dXS4G6APpCiAMGsyXE97G037QvzpsWvA/exec
+
