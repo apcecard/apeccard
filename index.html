@@ -215,6 +215,60 @@ a {
   </div>
 </body>
 <script>
+const form = document.getElementById("registerForm"); // ให้แน่ใจว่า form มี id="registerForm"
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const businessType = document.getElementById("business-type").value;
+    const otherBusinessType = document.getElementById("other-business-type").value;
+
+    const data = {
+      name: document.getElementById("name").value,
+      memberId: document.getElementById("member-id").value,
+      companyName: document.getElementById("company-name").value,
+      branch: document.getElementById("branch").value,
+      taxId: document.getElementById("tax-id").value,
+      businessType: businessType,
+      otherBusinessType: businessType === "OTHER" ? otherBusinessType : "",
+      revenue: document.getElementById("revenue").value,
+      employees: document.getElementById("employees").value,
+      address: document.getElementById("address").value,
+      telephone: document.getElementById("telephone").value,
+      mobile: document.getElementById("mobile").value,
+      email: document.getElementById("email").value,
+      website: document.getElementById("website").value
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbwIAjAB1OxyaXBSoZYusLprFb-4vWgV0Ewrq8hKcR6wjV4YYZ-sqSorPXDmxmlWr11OUQ/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => response.text())
+    .then(result => {
+      if (result === "Success") {
+        window.location.href = "sucss.html";
+      } else {
+        alert("Something went wrong: " + result);
+      }
+    })
+    .catch(error => {
+      alert("Error: " + error);
+    });
+  });
+
+  function showOtherInput() {
+    const select = document.getElementById("business-type");
+    const otherContainer = document.getElementById("other-input-container");
+    if (select.value === "OTHER") {
+      otherContainer.style.display = "block";
+    } else {
+      otherContainer.style.display = "none";
+    }
+  }
   function showOtherInput() {
     var businessType = document.getElementById("business-type").value;
     var otherInputContainer = document.getElementById("other-input-container");
