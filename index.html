@@ -129,7 +129,7 @@ a {
       <img src="https://www.jsccib.org/upload/images/2025/04/card1%20(1).png" alt="APEC Card" class="apec-logo">
       <h1>Register for User Premium Service ABTC</h1>
     </div>
-    <form action="sucss.html" method="POST">
+    <form id="registerForm">
       <div class="form-row">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
@@ -224,7 +224,15 @@ a {
     } else {
       otherInputContainer.style.display = "none"; // ซ่อนช่องกรอกข้อมูล
     }
-  }
+  document.getElementById("registerForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // ป้องกันการ reload หน้า
+
+    // 📌 ตรงนี้สามารถเพิ่มการส่งข้อมูลไป Google Sheet ได้ด้วย
+    // fetch(...)
+
+    // แล้ว redirect
+    window.location.href = "sucss.html";
+  });
 </script>
 </html>
 
