@@ -186,23 +186,24 @@ a {
           <input type="text" id="other-business-type" name="other-business-type" placeholder="Enter business type">
         </div>
       </div>
-  <div class="form-row">
+      <div class="form-row">
         <label for="business_sector">Business sector</label>
-        <select id="business_sector" name="Business sector" required onchange="showOtherInput()">
-          <option value="Select Business type">Select Business Type</option>
+        <select id="business_sector" name="businessSector" required>
+          <option value="">Select Business Sector</option>
           <option value="MANUFACTURING SECTOR">MANUFACTURING SECTOR</option>
           <option value="TRADE AND SERVICE SECTOR">TRADE AND SERVICE SECTOR</option>
-          <input name="businessSector" placeholder="Business Sector" />
         </select>
-        </div>
-<div class="form-number">
+      </div>
+    
+      <div class="form-number">
         <label for="revenue">Average annual company revenue (Million Baht)</label>
-        <input name="revenue" placeholder="Revenue (Million Baht)" type="number" step="0.01" />
-</div>
-<div class="form-number">
-<label for="perm_employees">Permanent employees (persons)</label>
-<input name="employees" placeholder="Permanent Employees" type="number" />
-</div>
+        <input name="revenue" id="revenue" type="number" placeholder="Revenue" step="0.01" />
+      </div>
+    
+      <div class="form-number">
+        <label for="employees">Permanent employees (persons)</label>
+        <input name="employees" id="employees" type="number" placeholder="Employees" />
+      </div>
 
       <div class="form-row">
         <label for="address">Address</label>
