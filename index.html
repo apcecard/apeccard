@@ -261,7 +261,7 @@ const form = document.getElementById("registrationForm");
     const data = Object.fromEntries(new FormData(form));
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzrXYMUHP11oKh7RePHKCqPw-F-cEpmcjrt5EK89MYsqBJGEeohpibTVurZGgzOtnCmjg/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzuo80KodB3nnubbKbZWWiGuSceZTGPghVvLDK5HcrNn7qQSS8v96GyaKOR0zCfALWR/exec", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
